@@ -9,7 +9,7 @@ return Application::configure(basePath: dirname(__DIR__))
         web: __DIR__.'/../routes/web.php',
     )
     ->withMiddleware(function (Middleware $middleware): void {
-        //
+        $middleware->trustProxies(at: env('TRUSTED_PROXIES', env('APP_ENV') === 'local' ? null : '*'));
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         //
