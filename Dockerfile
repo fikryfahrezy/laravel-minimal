@@ -22,4 +22,4 @@ RUN composer install --no-interaction --prefer-dist
 
 EXPOSE 8000
 
-HEALTHCHECK --interval=10s --timeout=5s --start-period=20s --retries=5 CMD ["php", "-r", "exit(@file_get_contents('http://127.0.0.1:8000/health') === false ? 1 : 0);"]
+HEALTHCHECK --interval=10s --timeout=5s --start-period=20s --retries=5 CMD ["php", "-r", "exit(@file_get_contents('http://127.0.0.1:8000/up') === false ? 1 : 0);"]
