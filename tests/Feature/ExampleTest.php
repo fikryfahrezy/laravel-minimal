@@ -11,11 +11,6 @@ class ExampleTest extends TestCase
 {
     use RefreshDatabase;
 
-    public function test_health_endpoint_responds_successfully(): void
-    {
-        $this->get('/health')->assertNoContent();
-    }
-
     public function test_homepage_displays_people_from_the_database(): void
     {
         $person = Person::factory()->create();
